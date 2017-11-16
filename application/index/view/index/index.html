@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div><a href="{:url('home/index/index')}">前台</a></div>
+	<div><a href="{:url('admin/index/index')}">后台</a></div>
+	<div style="border:1px solid red">
+		{volist name="arr" id="value"}
+			{$value.0}
+			{$value.1}
+			{foreach $value.3 as $k=>$v}
+				{$v}
+			{/foreach}
+		{/volist}
+	</div>
+</body>
+</html>

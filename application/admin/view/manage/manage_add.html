@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="__ADMIN__/css/reset.css" />
+	<link rel="stylesheet" href="__ADMIN__/css/content.css" />
+</head>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">添加企业板块</a></div>
+		<div class="public-content">
+			<div class="public-content-cont">
+			<form action="" enctype="multipart/form-data" method="post">
+				
+				<div class="form-group">
+					<label for="">标题</label>
+					<input class="form-input-txt" type="text" name="title" value="" />
+				</div>
+				<div class="form-group">
+					<label for="">内容</label>
+					<textarea class="form-input-textara" type="text" name="content"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="">图片上传</label>
+					<input type="file" name="image" style="margin-top:8px"/>
+				</div>
+				<div class="form-group">
+					<label for="">链接</label>
+					<input class="form-input-txt" type="text" name="goal" value="" />
+				</div>
+				<div class="form-group" style="margin-left:150px;margin-top:30px">
+					<input type="submit" class="sub-btn" value="提  交" />
+					<input type="reset" class="sub-btn" value="重  置" />
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+<script src="__ADMIN__/kingediter/kindeditor-all-min.js"></script>
+<script>
+	 KindEditor.ready(function(K) {
+                window.editor = K.create('#editor_id');
+        });
+</script>
+</body>
+</html>

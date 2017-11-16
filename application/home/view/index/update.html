@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" href="__HOME__/css/bootstrap.min.css">
+	<link rel="stylesheet" href="__HOME__/css/register.css">
+	<link rel="stylesheet" href="__HOME__/css/header.css">
+</head>
+<body>
+{include file="public/header"}
+<!-- 注册块 -->
+<div class="container signup">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="content">
+				<h3>密码重置</h3>
+				<form action="" method='post'>
+					<div class="input-group">
+						<div class="input-group-addon">用户名&nbsp;&nbsp;&nbsp;</div>
+						<input type="text" class="form-control" name="name">
+					</div>
+					<div class="input-group">
+						<div class="input-group-addon">密码设置</div>
+						<input type="password" class="form-control" name="password">
+					</div>
+					<div class="input-group">
+						<div class="input-group-addon">密码确认</div>
+						<input type="password" class="form-control" name="re_password">
+					</div>
+					<div class="input-group">
+						<button class="btn btn-primary" type="submit">提交</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<img src="__HOME__/images/register.jpg" alt="">
+		</div>
+	</div>
+</div>
+<!-- 尾部分 -->
+{include file="public/foot"}
+</body>
+</html>

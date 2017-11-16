@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link rel="stylesheet" href="__HOME__/css/bootstrap.min.css">
+	<link rel="stylesheet" href="__HOME__/css/index.css">
+</head>
+<body>
+{include file='public/header'}
+<!-- 主体部分 -->
+	<div class="container">
+<!-- banner图片 -->
+		<div class="row">
+			<div id="banner">
+				<img src="__HOME__/images/1.jpg" alt="">
+				<ol>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ol>
+				<div id="page">
+					<a href="javascript:void(0)">上一页</a>
+					<a href="javascript:void(0)">下一页</a>
+				</div>
+			</div>
+		</div>
+<!-- 公司模块 -->
+		<div class="row model">
+			<div class="col-md-4">
+				<div class="item">
+					<div class="row">
+						<div class="col-md-12"><h4 class="title">文化景区</h4></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<img src="__HOME__/images/pop01.jpg" alt="">
+						</div>
+						<div class="col-md-6">
+							<div class="content">
+								<p>
+								君乐宝乳业文化景区
+								全国首家集酸奶文化和牧 场文化于一体的乳业文化之旅。
+								</p>
+								<div class="pop_btn"><a href="">在线报名</a></div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="col-md-4">
+				<div class="item">
+					<div class="row">
+						<div class="col-md-12"><h4 class="title">文化景区</h4></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<img src="__HOME__/images/pop01.jpg" alt="">
+						</div>
+						<div class="col-md-6">
+							<div class="content">
+								<p>
+								君乐宝乳业文化景区
+								全国首家集酸奶文化和牧 场文化于一体的乳业文化之旅。
+								</p>
+								<div class="pop_btn"><a href="">在线报名</a></div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="col-md-4">
+				<div class="item">
+					<div class="row">
+						<div class="col-md-12"><h4 class="title">文化景区</h4></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<img src="__HOME__/images/pop01.jpg" alt="">
+						</div>
+						<div class="col-md-6">
+							<div class="content">
+								<p>
+								君乐宝乳业文化景区
+								全国首家集酸奶文化和牧 场文化于一体的乳业文化之旅。
+								</p>
+								<div class="pop_btn"><a href="">在线报名</a></div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+<!-- 尾部分 -->
+	{include file='public/foot'}
+	<script>
+	window.onload=function(){
+	var oB=document.getElementById("banner");
+	var oImg=oB.getElementsByTagName("img")[0];
+	var oLi=oB.getElementsByTagName("li");
+	var oA=oB.getElementsByTagName("a");
+	var num=1;
+	var time=null;
+	function slide1(){
+		if(num==10){
+			num=1;
+		}else{
+			num++;
+		}//经过此条件判断，num==2;
+		oImg.src="__HOME__/images/"+num+".jpg";//修改属性
+		for(var i=0;i<oLi.length;i++){
+			if(i==num-1){
+				oLi[i].className="current";
+			}else{
+				oLi[i].className="";
+			}
+		}
+	}
+	time=setInterval(slide1,2000);//定时器每2秒执行一次；
+	function slide2(){
+		if(num==10){
+			num=10;
+		}else{
+			num--;
+		}
+	}
+	oImg.src="__HOME__/images/"+num+".jpg";
+	for(var i=0;i<oLi.length;i++){
+		if(i==num-1){
+			oLi[i].className="current";
+		}else{
+			oLi[i].className="";
+		}
+	}
+	//手动轮播
+	for(var i=0;i<oLi.length;i++){
+		oLi[i].onclick=function(){
+			for(var j=0;j<oLi.length;j++){
+				if(oLi[j]===this){
+					oLi[j].className="current";
+					oImg.src="__HOME__/images/"+(j+1)+".jpg";
+					num=j+1;
+					
+				}else{
+					oLi[j].className="";
+				}
+			}
+		}
+	}
+	//上一页
+	oA[0].onclick=function(){
+		slide2();				
+	}
+	//下一页
+	oA[1].onclick=function(){
+		slide1();				
+	}
+	//鼠标移入事件
+	oB.onmouseover=function(){
+		clearInterval(time);
+		oA[0].style.display="block";
+		oA[1].style.display="block";
+	}
+	//鼠标移事件出
+	oB.onmouseout=function(){
+		time=setInterval(slide1,2000);
+		oA[0].style.display="none";
+		oA[1].style.display="none";
+	}
+}
+	</script>
+</body>
+</html>

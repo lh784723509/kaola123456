@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="public-cont-left">
+		<div class="public-cont-title">
+			<h3>修改分类</h3>
+		</div>
+		<form action="{url('cate/cate_update')}" method='post'>
+		<input type="hidden" name='id' value="{$cates.id}">
+		<div class="form-group">
+			<label for="">上级栏目</label>
+			<select name="pid" class="form-select">
+				<option value="0">顶级分类</option>
+				{volist name='cateres' id='v'}
+					<option value="{$v.id}"{if condition="$cates.pid eq $v.id"}selected{/if}>{if condition="$v.level neq 0"}|{/if}
+						{$v.level|str_repeat="_",###*4}{$v.cate_name}</option>
+				{/volist}
+			</select>
+		</div>
+		<div class="form-group mt0">
+			<label for="">栏目名称</label>
+			<input type="text" class="form-input-small" name="cate_name" value="{$cates.cate_name}">
+		</div>
+		<div class="form-group mt0">
+			<label for="">栏目类型</label>
+			<input type="radio" name='type'  value="1" {if $cates.type==1}checked{/if}>文章列表
+			<input type="radio" name='type' value="2" {if $cates.type==2}checked{/if}>单页栏目
+			<input type="radio" name='type' value="3" {if $cates.type==3}checked{/if}>图片列表
+		</div>
+		<div class="form-group mt0" style="text-align:center;margin-top:15px;">
+			<input type="submit" class="sub-btn" value="提   交">
+		</div>
+		</form>
+	</div>
+</body>
+</html>

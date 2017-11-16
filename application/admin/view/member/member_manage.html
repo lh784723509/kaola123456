@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="__ADMIN__/css/reset.css" />
+	<link rel="stylesheet" href="__ADMIN__/css/content.css" />
+	<link rel="stylesheet" href="__ADMIN__/css/page.css" />
+</head>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">会员管理</a></div>
+		<div class="public-content">
+			<div class="public-content-cont">
+				<table class="public-cont-table">
+					<tr>
+						<th style="width:17%">ID</th>
+						<th style="width:17%">用户名</th>
+						<th style="width:17%">密码</th>
+						<th style="width:17%">电话</th>
+						<th style="width:15%">使用状态</th>
+						<th style="width:17%">注册时间</th>
+					</tr>
+						{foreach $array as $v}
+						<tr>
+							<td>{$v['id']}</td>
+							<td>{$v['name']}</td>
+							<td>{$v['password']}</td>
+							<td>{$v['phone']}</td>
+							<td>
+							{switch name=$v['state']}
+								{case value='1'}正常使用{/case}
+								{case value='2'}禁用{/case}
+								{default/}其他
+							{/switch}
+							</td>
+							<td>{$v['addtime']|date='Y-m-d H:i:s',###}</td>
+						</tr>
+						{/foreach}
+				</table>
+				<div id="page">
+					{$array->render()}
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

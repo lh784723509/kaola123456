@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新闻列表</title>
+	<link rel="stylesheet" href="__HOME__/css/bootstrap.min.css">
+	<link rel="stylesheet" href="__HOME__/css/newslist.css">
+	<link rel="stylesheet" href="__HOME__/css/header.css">
+	<style>
+		#page ul{
+			margin-left:50%;
+		}
+	</style>
+</head>
+<body>
+{include file='public/header'}
+<!-- 新闻主体部分 -->
+	<div class="container news">
+<!-- 插入图片 -->
+		<div class="row pic">
+			<img src="__HOME__/images/slogan03.jpg" alt="">
+		</div>
+<!-- 标题栏 -->
+		<div class="row">
+			<div class="col-md-3">
+				<div class="title">
+					<h4>{$res1[0]['cate_name']}</h4>
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active"><a href="">{$res1[1]['cate_name']}</a></li>
+						<li><a href="">{$res1[2]['cate_name']}</a></li>
+						<li><a href="">{$res1[3]['cate_name']}</a></li>
+					</ul>
+				</div>
+			</div>
+<!-- 新闻列表详情 -->
+			<div class="col-md-9 list">
+				<div class="row item">
+					<div class="col-md-4">
+						<h2>{$res1[1]['cate_name']}</h2>
+					</div>
+					<div class="col-md-8">
+						<form action="">
+							<input type="text">
+							<input type="submit" value="新闻搜索" class="btn btn-primary">
+						</form>
+					</div>
+				</div>
+				{volist name="res2" id="v"}
+				<div class="row item">
+					<div class="col-md-10">
+						<img src="__HOME__/images/artical_list_nod.gif" alt="">
+						<a href="{:url('news/news_details',['id'=>$v.id])}">{$v.title}
+						</a>
+					</div>
+					<div class="col-md-2">
+						<span>{$v.addtime|date="Y-m-d",###}</span>
+					</div>
+				</div>
+				{/volist}
+			</div>
+		</div>
+<!-- 分页-->
+		<div id="page">
+			{$res2->render()}
+		</div>
+	</div>
+<!-- 尾部分 -->
+	{include file='public/foot'}
+</body>
+</html>

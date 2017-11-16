@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" href="__HOME__/css/bootstrap.min.css">
+	<link rel="stylesheet" href="__HOME__/css/register.css">
+	<link rel="stylesheet" href="__HOME__/css/header.css">
+</head>
+<body>
+<!-- 导航栏 -->
+	{include file='public/header'}
+<!-- 登陆块 -->
+<div class="container signup">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="content">
+				<h3>用户注册</h3>
+				<form action="" method='post'>
+					<div class="input-group">
+						<div class="input-group-addon">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</div>
+						<input type="text" class="form-control" name="name">
+					</div>
+					<div class="input-group">
+						<div class="input-group-addon">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</div>
+						<input type="password" class="form-control" name="password">
+					</div>
+					<div class="input-group">
+						<div class="input-group-addon">密码确认</div>
+						<input type="password" class="form-control" name="re_password">
+					</div>
+					<div class="input-group">
+						<div class="input-group-addon">手机号码</div>
+						<input type="text" class="form-control" name="phone">
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">&nbsp;验&nbsp;证&nbsp;码</div>
+							<input type="text" class="form-control" name="checkcode">
+						</div>
+						<img src="{:captcha_src()}" alt="captcha" style="width:30%;margin-top:10px;margin-left:30%;" onclick="this.src='{:captcha_src()}?id='+Math.random();"/>
+					</div>
+					<div class="input-group">
+						<button class="btn btn-primary" type="submit">注册</button>
+					</div>
+					<div class="input-group">
+						<a href="login">已注册用户请登录</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<img src="__HOME__/images/register.jpg" alt="">
+		</div>
+	</div>
+</div>
+<!-- 尾部分 -->
+{include file='public/foot'}
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新闻详情</title>
+	<link rel="stylesheet" href="__HOME__/css/bootstrap.min.css">
+	<link rel="stylesheet" href="__HOME__/css/newsdetail.css">
+	<link rel="stylesheet" href="__HOME__/css/index.css">
+</head>
+<body>
+{include file='public/header'}
+<!-- 新闻主体部分 -->
+	<div class="container news">
+<!-- 插入图片 -->
+		<div class="row pic">
+			<img src="__HOME__/images/slogan01.jpg" alt="">
+		</div>
+<!-- 标题栏 -->
+		<div class="row">
+			<div class="col-md-3">
+				<div class="title">
+					<h4>快速导航</h4>
+					<ul class="nav nav-pills nav-stacked">
+						<li><a href="">文化景区</a></li>
+						<li><a href="">关于君乐宝</a></li>
+						<li><a href="">新闻中心</a></li>
+						<li><a href="">品质保证</a></li>
+						<li><a href="">产品家族</a></li>
+						<li><a href="">人力资源</a></li>
+						<li><a href="">在线招标</a></li>
+					</ul>
+				</div>
+			</div>
+<!-- 新闻详情 -->
+			<div class="col-md-9 content">
+<!-- 新闻标题 -->
+				<div class="item" style="border:none;border-radius:0px;border-bottom:2px solid #eee">
+					<span>{$res.0.title}</span>
+				</div>
+<!-- 新闻正文 -->
+				<div>
+					<p>
+						{$res.0.content}
+					</p>
+					<p>
+						<img src="http://127.0.0.1/milk/public/{$res.0.thumb}" alt="">
+					</p>
+					<p>
+						{$res.0.content}
+					</p>
+					<p>
+						{$res.0.content}
+					</p>
+					<p>
+						<img src="http://127.0.0.1/milk/public/{$res.0.thumb}" alt="">
+					</p>
+					<p>
+						{$res.0.content}
+					</p>
+				</div>
+<!-- 新闻评论 -->
+				<div class="comment">
+					<div class="row">
+						<div class="col-md-4 comment_title_fl">
+							<span>网友评论 | </sapn>
+							<a href=""><span class="manage">跟帖管理 | </span></a>
+							<a href=""><span>举报</span></a>
+						</div>
+						<div class="col-md-4"></div>
+						<div class="col-md-4 comment_title_fr">
+							<a href="">9</a>条评论 / 
+							<a href="">26</a>人参与
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<textarea placeholder="文明上网"></textarea>
+							<button type="submit" class="btn btn-danger fr">发表评论</button>	
+							<span class="comment_login1">一键登录：</span><a href="" class="comment_login2">君乐宝账户</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="comment_list">
+								<h3>最热评论</h3>
+								<div>
+									<div class="comment_list_title">
+										<a href="">天天天蓝蓝蓝</a>
+										<span style="color:#666">[北京市网友]</span>
+									</div>
+									<div class="comment_list_content">君乐宝乳业集团现场为新华区17所中小学校捐赠学生奶3500提，总价值21万余元，
+									</div>
+									<div class="comment_list_bottom clearfix">
+										<div class="fl">
+											<span>2017-08-30 16:01</span>
+										</div>
+										<div class="fr">
+											<a href="">推荐 <span>4</span> </a> / 
+											<a href="">回复 </a> / 
+											<a href="">举报 </a> 
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 comment_footer">
+							<a href="">查看更多评论>></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- 尾部分 -->
+	{include file='public/foot'}
+</body>
+</html>

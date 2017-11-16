@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.nav_second li:last-child a{
+			border-bottom:none;
+		}
+		.cat li:nth-child(5) ul{
+		display:none;
+		}
+		.cat li:nth-child(5):hover ul{
+			background:white;
+			display:block;
+		}
+	</style>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<div class="container header">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="navbar-header logo">
+					<img src="__HOME__/images/logo.png" alt="">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="row">
+					<div class="nav nav-tabs fr login">
+						<li>
+							{if $Think.session.res.name}
+							<a href="{:url('index/index')}">{$Think.session.res.name},您好！</a>
+							{else /}<a href="{:url('index/dologin')}">登录</a>
+							{/if}
+						</li>
+						<li><a href="">|</a></li>
+						<li>
+							{if $Think.session.res.name}
+							<a href="{:url('index/loginout')}">退出</a>
+							{else /}<a href="{:url('index/register')}">注册</a>
+							{/if}
+						</li>
+					</div>
+				</div>
+				<div class="row">
+					<form class="navbar-form navbar-right">
+						<div class="form-group">
+						<input type="text" class="form-control" placeholder="请输出商品名称">
+						<button class="btn btn-default" type="submit">搜索</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- 菜单栏-->
+	<div class="container menu">
+		<div class="row">
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-10" style="position:relative">
+				<ul class="nav nav-justified cat">
+					<li><a href="{:url('index/index')}">首页</a></li>
+					{volist name='cateres' id='cate'}
+					<li>
+						<a href="{if condition='$cate.children neq 0'}http://127.0.0.1/milk/public/index.php/home/index/index
+						{else/}http://127.0.0.1/milk/public/index.php/home/{if $cate.id==41}recruit{/if}{if $cate.id==43}contact{/if}/{if $cate.id==41}recruit{/if}{if $cate.id==43}contact{/if}/cateid/{$cate.id}
+						{/if}">{$cate.cate_name}</a>
+						{if condition="$cate.children neq 0"}
+						<ul class="nav_second">
+							{foreach $cate.children as $v2}
+							<li><a href="http://127.0.0.1/milk/public/index.php/home/{if $cate.id==39}about{/if}{if $cate.id==40}products{/if}{if $cate.id==42}news{/if}/
+						{if $v2.id==44||$v2.id==45||$v2.id==46||$v2.id==47}about{/if}
+						{if $v2.id==48||$v2.id==49||$v2.id==50||$v2.id==51||$v2.id==52||$v2.id==53||$v2.id==54}product_list{/if}
+						{if $v2.id==57||$v2.id==58||$v2.id==59}news_list{/if}
+						/cateid/{$v2.id}">{$v2.cate_name}</a></li>
+							{/foreach}
+						</ul>
+						{/if}
+					</li>
+					{/volist}
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

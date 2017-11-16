@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="__ADMIN__/css/reset.css" />
+	<link rel="stylesheet" href="__ADMIN__/css/public.css" />
+	<link rel="stylesheet" href="__ADMIN__/css/content.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">修改新闻列表</a></div>
+		<div class="public-content">
+			<div class="public-content-cont">
+				<form action="{url('news/news_update')}" method='post' enctype="multipart/form-data">
+					<input type="hidden" name="id" value="{$result.id}">
+					<div class="form-group">
+						<label for="">标题</label>
+						<input type="text" class="form-input-txt" name="title" value={$result.title}>
+					</div>
+					<div class="form-group">
+						<label for="">作者</label>
+						<input type="text" class="form-input-txt" name="author" value={$result.author}>
+					</div>
+					<div class="form-group">
+						<label for="">关键词</label>
+						<input type="text" class="form-input-txt" name="keywords" value={$result.keywords}>
+					</div>
+					<div class="form-group">
+						<label for="">描述</label>
+						<textarea class="form-input-textara" type="text" name="desc">{$result.desc}</textarea>
+					</div>
+					<div class="form-group">
+						<label for="">缩略图</label>
+						<input type="file" name="thumb[]" style="float:left;margin-top:8px"/>
+						<input type="file" name="thumb[]" style="float:left;margin-top:8px"/>
+						<input type="file" name="thumb[]" style="float:left;margin-top:8px"/>
+						{if condition="$result.thumb neq ''"}
+						{foreach $result.thumb as $route}
+						{if condition="$route neq ''"}
+						<img  style="height:40px;float:left;margin-left:-80px" src="{$route}" alt="">
+						{/if}
+						{/foreach}
+						{else/}<span style="display:inline-block;float:left;margin-left:-80px;margin-top:14px;color:red">暂无缩略图</span>
+						{/if}
+					</div>
+					<div class="form-group">
+						<label for="">所属栏目</label>
+						<select name="cateid" class="form-select">
+							<option value="0">顶级分类</option>
+							{volist name='cateres' id='v'}
+								<option value="{$v.id}" {if $v.id==$result.cateid}selected{/if}>{if condition="$v.level neq 0"}|{/if}
+									{$v.level|str_repeat="_",###*4}{$v.cate_name}
+								</option>
+							{/volist}
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="">内容</label>
+						<textarea id="editor_id" name="content"  class="form-input-textara" style="width:700px;height:300px;">
+							{$result.content}
+						</textarea> 
+					</div>
+					<div class="form-group" style="margin-left:150px;">
+					<input type="submit" class="sub-btn" value="提  交" />
+					<input type="reset" class="sub-btn" value="重  置" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="__ADMIN__/kingediter/kindeditor-all-min.js"></script>
+	<script src="__ADMIN__/js/laydate.js"></script>
+	<script>
+	KindEditor.ready(function(K) {
+    	window.editor = K.create('#editor_id');
+    });
+	</script>
+</body>
+</html>

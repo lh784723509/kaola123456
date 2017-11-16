@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>产品列表</title>
+	<link rel="stylesheet" href="__HOME__/css/bootstrap.min.css">
+	<link rel="stylesheet" href="__HOME__/css/productlist.css">
+	<link rel="stylesheet" href="__HOME__/css/header.css">
+	<style>
+		#page ul{
+			margin-left:50%;
+		}
+	</style>
+</head>
+<body>
+{include file='public/header'}
+<!--商品列表 -->
+	<div class="container product">
+<!-- 商品主体部分 -->
+		<div class="row">
+		<!-- 左边导航部分 -->
+			<div class="col-md-3 title">
+				<a href=""></a>
+				<a href=""></a>
+				<a href=""></a>
+				<a href=""></a>
+				<a href=""></a>
+				<a href=""></a>
+				<a href=""></a>
+			</div>
+		<!-- 右边列表部分 -->
+			<div class="col-md-9 content">
+				<div class="row listtop">
+					<div class="col-md-12">
+						<img src="__HOME__/images/product_cont_t.gif" alt="">
+					</div>
+				</div>
+				<div class="list">
+					{volist name="prolist" id="list"}
+					{if condition="$list.thumb neq ''"}
+					<a class="col-md-4" href="{:url('products/product_details',['id'=>$list.id])}">
+						<div class="list_1 list_d">
+							<img src="http://127.0.0.1/milk/public/{$list.thumb}" alt="">
+							<p>{$list.title}</p>
+						</div>
+					</a>
+					{else/}
+					<a class="col-md-4" href="{:url('products/product_details',['id'=>$list.id])}">
+						<div class="list_1 list_d">
+							<div style="width:100%;height:230px"></div>
+							<p>{$list.title}</p>
+						</div>
+					</a>
+					{/if}
+					{/volist}
+				</div>
+			</div>
+		</div>
+		<div id="page">
+			{$prolist->render()}
+		</div>
+	</div>
+<!-- 尾部分 -->
+	{include file='public/foot'}
+</body>
+</html>
